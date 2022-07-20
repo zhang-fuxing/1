@@ -1,0 +1,15 @@
+
+geologic:
+  hibernate:
+    configLocation: classpath:static/oracle-cfg.xml
+
+spring:
+  datasource:
+    # 数据源基本配置
+    username: dbo
+    password: ksspasswjs
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@192.168.235.249:1521:basedb
+    type: com.alibaba.druid.pool.DruidDataSource
+server:
+  port: 3001
