@@ -1,14 +1,13 @@
-package com.b;
+package com.c;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BApplicationTests {
+class CApplicationTests {
 
     @Test
     void contextLoads() {
     }
-
 
 }

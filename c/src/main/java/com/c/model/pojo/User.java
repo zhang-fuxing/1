@@ -1,4 +1,4 @@
-package com.b.model.pojo;
+package com.c.model.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
