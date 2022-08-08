@@ -2,6 +2,7 @@ package com.c.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -18,5 +19,10 @@ public class ApplicationConfig implements WebMvcConfigurer {
                .allowedMethods("GET","POST")
                .allowedHeaders("*")
                .maxAge(3600);
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        WebMvcConfigurer.super.addInterceptors(registry);
     }
 }

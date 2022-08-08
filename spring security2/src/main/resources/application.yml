@@ -1,0 +1,11 @@
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    username:
+    password:
+
+server:
+  reactive:
+    session:
+      timeout: 1*60*30
