@@ -11,7 +11,8 @@
     <modules>
         <module>spring</module>
         <module>spring security1</module>
-        <module>spring security2</module>
+        <module>spring-session-01</module>
+        <module>spring-session-02</module>
         <module>设计模式</module>
         <module>Java多线程</module>
         <module>java-iostream</module>
