@@ -110,3 +110,5 @@ public class S1Application {
 ![1672888158260](image/spring-cloud-alibaba/1672888158260.png)
 
 ### 配置中心
+
+1. 使用配置中心需要添加配置中心相关依赖、如下
