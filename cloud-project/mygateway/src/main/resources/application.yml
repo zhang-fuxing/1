@@ -1,0 +1,30 @@
+server:
+  port: 7520
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.235.40:8848
+        namespace: cloud1-id1
+        group: project1
+    gateway:
+      routes:
+        - id: route1
+          uri: http://192.168.235.40:2333
+          order: 1
+          predicates:
+            - Path=/service1/**
+          filters:
+            - StripPrefix=1
+        - id: route2
+          uri: http://192.168.235.40:2444
+          order: 1
+          predicates:
+            - Path=/service2/**
+          filters:
+            - StripPrefix=1

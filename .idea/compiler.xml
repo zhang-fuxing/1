@@ -9,11 +9,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="a" />
         <module name="b" />
-        <module name="Java-thread" />
-        <module name="design-schema" />
         <module name="spring-session-02" />
         <module name="java-iostream" />
         <module name="spring-session-01" />
+        <module name="Java-thread" />
+        <module name="mygateway" />
+        <module name="design-schema" />
         <module name="simpleServer" />
         <module name="s1" />
         <module name="algorithm" />
@@ -22,6 +23,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cloud" target="17" />
+      <module name="s-gateway" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
