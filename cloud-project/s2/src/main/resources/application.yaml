@@ -2,4 +2,4 @@ config:
   info: azzz
 
 server:
-  port: 2444
+  port: 2445

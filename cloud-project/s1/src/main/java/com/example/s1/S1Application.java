@@ -25,10 +25,11 @@ public class S1Application {
 	
 	@Value("${config.yyz}")
 	private String yyz;
-	
+	@Value("${server.port}")
+	private String port;
 	
 	@GetMapping("/info")
 	public String getInfo() {
-		return info + " : " + yyz;
+		return "service1:-port=" + port +info + " : " + yyz;
 	}
 }

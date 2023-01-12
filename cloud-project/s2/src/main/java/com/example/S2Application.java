@@ -21,8 +21,9 @@ import javax.annotation.Resource;
 @EnableFeignClients
 public class S2Application {
 	public static void main(String[] args) {
-		SpringApplication.run(S2Application.class,args);
+		SpringApplication.run(S2Application.class, args);
 	}
+	
 	@Resource
 	RestTemplate template;
 	
@@ -32,8 +33,11 @@ public class S2Application {
 	@Value("${config.info}")
 	private String info;
 	
+	@Value("${server.port}")
+	private int port;
+	
 	@GetMapping("/info")
 	public String get() {
-		return "service1-data=" + s1.getInfo() + " | service2-data=" + info;
+		return "port:" + port + "\nservice1-data=" + s1.getInfo() + " | service2-data=" + info;
 	}
 }

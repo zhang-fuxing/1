@@ -15,14 +15,14 @@ spring:
     gateway:
       routes:
         - id: route1
-          uri: http://192.168.235.40:2333
+          uri: lb://service1
           order: 1
           predicates:
             - Path=/service1/**
           filters:
             - StripPrefix=1
         - id: route2
-          uri: http://192.168.235.40:2444
+          uri: lb://service2
           order: 1
           predicates:
             - Path=/service2/**

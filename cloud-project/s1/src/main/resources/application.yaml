@@ -2,4 +2,4 @@ config:
   info: aaaaaa
 
 server:
-  port: 2333
+  port: 2335
