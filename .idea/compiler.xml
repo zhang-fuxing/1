@@ -9,6 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="a" />
         <module name="b" />
+        <module name="networkserve1" />
+        <module name="networkserve2" />
         <module name="spring-session-02" />
         <module name="java-iostream" />
         <module name="spring-session-01" />
@@ -29,6 +31,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="b" options="-parameters" />
+      <module name="networkserve1" options="-parameters" />
+      <module name="networkserve2" options="-parameters" />
       <module name="s1" options="" />
       <module name="spring-session-01" options="-parameters" />
       <module name="spring-session-02" options="-parameters" />
