@@ -2,6 +2,7 @@ package 代理.dynamicproxy;
 
 import 代理.dynamicproxy.fun.UserService;
 import 代理.dynamicproxy.impl.UserServiceImpl;
+import 代理.dynamicproxy.proxy.CglibProxy;
 import 代理.dynamicproxy.proxy.ProxyFactory;
 
 /**
@@ -14,5 +15,10 @@ public class Main {
 		UserServiceImpl userService = new UserServiceImpl();
 		UserService proxyObject = new ProxyFactory<UserService>(userService).getProxyObject();
 		proxyObject.tt();
+		
+		// cglib dynamic proxy
+		TestClass testClass = new TestClass();
+		TestClass proxy = new CglibProxy<>(testClass).getProxy();
+		proxy.test();
 	}
 }
