@@ -6,7 +6,8 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import z.config.SpringConfig;
-import z.intef.RunType;
+import z.control.Aircraft;
+import z.control.Train;
 
 import java.time.Duration;
 
@@ -18,10 +19,18 @@ import java.time.Duration;
 public class MainApp {
 	public static void main(String[] args) throws Exception {
 		ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
-		RunType kaImpl = context.getBean("kaImpl",RunType.class);
-		RunType runTypeImpl = context.getBean("runTypeImpl",RunType.class);
-		kaImpl.run();
+		
+//		var kaImpl = context.getBean("kaImpl", RunType.class);
+//		kaImpl.run();
+//		RunType runTypeImpl = context.getBean("runTypeImpl",RunType.class);
 //		runTypeImpl.run();
+//		FlyType flyType = context.getBean(FlyType.class);
+//		flyType.fly();
+//		CarFun car = context.getBean(CarFun.class);
+//		car.carRun();
+	context.getBean(Aircraft.class).fly();
+	context.getBean(Train.class).run();
+	
 	}
 	
 	public static JedisPool getPool() {

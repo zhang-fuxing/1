@@ -1,5 +1,6 @@
 package com.example.networkserve1;
 
+import cn.hutool.core.lang.Dict;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -8,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @SpringBootApplication
 public class Networkserve1Application {
-	
+	static int count = 0;
 	public static void main(String[] args) {
 		SpringApplication.run(Networkserve1Application.class, args);
 	}
@@ -37,11 +40,20 @@ public class Networkserve1Application {
 		return (T) ("server1:-" + param + "\n" + request);*/
 	}
 	
-	@PostMapping("/net1/p")
-	public Object get2(@RequestBody Params params) {
-		System.out.println(params);
+	@ApiCall(limiting = 100, time = 120)
+	@RequestMapping("/net1/p")
+	public Object get2(/*@RequestBody Params params*/) {
+		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+		RequestContextHolder.setRequestAttributes(requestAttributes, true);
+		HttpServletRequest request = requestAttributes.getRequest();
+		String appKey = request.getHeader("appKey");
+		String secret = request.getHeader("secret");
+		System.out.println("appKey:" + appKey + "\nsecret:" + secret);
+		
+//		System.out.println(params);
 //		return new ResponseEntity("请求错误", HttpStatus.BAD_REQUEST);
-		return params;
+		Dict set = Dict.create().set("appKey", appKey).set("secret", secret);
+		return set;
 	}
 	
 	static class Params {
