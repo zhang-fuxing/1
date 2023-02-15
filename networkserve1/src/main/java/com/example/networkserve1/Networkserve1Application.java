@@ -13,6 +13,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.concurrent.TimeUnit;
 
 
 @RestController
@@ -40,7 +41,7 @@ public class Networkserve1Application {
 		return (T) ("server1:-" + param + "\n" + request);*/
 	}
 	
-	@ApiCall(limiting = 100, time = 120)
+	@ApiCall(limiting = 100, time = 120,unit = TimeUnit.MINUTES)
 	@RequestMapping("/net1/p")
 	public Object get2(/*@RequestBody Params params*/) {
 		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -48,12 +49,22 @@ public class Networkserve1Application {
 		HttpServletRequest request = requestAttributes.getRequest();
 		String appKey = request.getHeader("appKey");
 		String secret = request.getHeader("secret");
-		System.out.println("appKey:" + appKey + "\nsecret:" + secret);
-		
+//		System.out.println("appKey:" + appKey + "\nsecret:" + secret);
+		getUri();
 //		System.out.println(params);
 //		return new ResponseEntity("请求错误", HttpStatus.BAD_REQUEST);
 		Dict set = Dict.create().set("appKey", appKey).set("secret", secret);
 		return set;
+	}
+	
+	public void getUri() {
+		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+		RequestContextHolder.setRequestAttributes(requestAttributes, true);
+		HttpServletRequest request = requestAttributes.getRequest();
+		String appKey = request.getHeader("appKey");
+		String secret = request.getHeader("secret");
+		String uri = request.getRequestURI();
+		System.out.println(uri);
 	}
 	
 	static class Params {

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -39,5 +40,11 @@ public class Networkserve2Application {
 				.execute();
 		
 		return null;
+	}
+	
+	@GetMapping("/111")
+	public List<Integer> get111() {
+		List<Integer> list = List.of(111, 222, 333, 444, 555, 666);
+		return list;
 	}
 }

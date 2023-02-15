@@ -1,12 +1,15 @@
 package com.zfx;
 
-import com.zfx.config.MyAnno;
-@MyAnno("12333")
+import java.io.IOException;
+
+
 public class Main {
     
 
-    public static void main(String[] args) {
-    
+    public static void main(String[] args) throws IOException {
+        String url = "http://localhost:9000/app/";
+        url = url.substring(0, url.length()-1);
+        System.out.println(url);
     }
     
     

@@ -28,7 +28,22 @@ public class MainTest {
 	
 	@Test
 	public void test1() {
-		user.t1();
+		StringBuilder sql = new StringBuilder("select distinct v.vpicsType.typeName,v.fileType from VgeoData v where v.projectid=222");
+		
+		Integer[] id = {4, 5, 6};
+		sql.append(" and v.picType.picsTypeId in(");
+		for (Integer item : id) {
+			sql.append(item).append(",");
+		}
+		int index = sql.lastIndexOf(",");
+		sql.replace(sql.length()-1, sql.length(),")");
+		System.out.println(sql.toString());
+		
+	}
+	
+	@Test
+	public void test2() {
+	
 	}
 	
 	public static void main(String[] args) {
@@ -42,7 +57,7 @@ public class MainTest {
 		Pojo[] pojos = new Pojo[2];
 		JEDIS.hsetnx("map", "pojo", JSONUtil.parseObj(pojo).toJSONString(4));
 		String hget = JEDIS.hget("map", "pojo");
-
+		
 	}
 	
 	public static final Jedis JEDIS;

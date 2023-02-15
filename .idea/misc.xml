@@ -14,6 +14,8 @@
         <option value="$PROJECT_DIR$/cloud-project/s1/pom.xml" />
         <option value="$PROJECT_DIR$/networkserve1/pom.xml" />
         <option value="$PROJECT_DIR$/networkserve2/pom.xml" />
+        <option value="$PROJECT_DIR$/netty-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/util/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

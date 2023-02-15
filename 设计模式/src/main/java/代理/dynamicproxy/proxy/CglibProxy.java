@@ -22,7 +22,7 @@ public class CglibProxy<T> implements MethodInterceptor {
 	public CglibProxy() {}
 	
 	@SuppressWarnings("unchecked")
-	public T getProxy() {
+	public T getProxyObject() {
 		var enhancer = new Enhancer();
 		enhancer.setUseFactory(true);
 		enhancer.setSuperclass(target.getClass());

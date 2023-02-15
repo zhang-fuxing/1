@@ -15,10 +15,10 @@ public class Main {
 		UserServiceImpl userService = new UserServiceImpl();
 		UserService proxyObject = new ProxyFactory<UserService>(userService).getProxyObject();
 		proxyObject.tt();
-		
+		System.out.println();
 		// cglib dynamic proxy
 		TestClass testClass = new TestClass();
-		TestClass proxy = new CglibProxy<>(testClass).getProxy();
+		TestClass proxy = new CglibProxy<>(testClass).getProxyObject();
 		proxy.test();
 	}
 }
