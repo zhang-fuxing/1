@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,8 +45,9 @@ public class Networkserve2Application {
 	}
 	
 	@GetMapping("/111")
-	public List<Integer> get111() {
+	public void get111(HttpServletResponse response) throws IOException {
 		List<Integer> list = List.of(111, 222, 333, 444, 555, 666);
-		return list;
+		response.setContentType("application/octet-stream");
+		response.getOutputStream().write("hello world!".getBytes());
 	}
 }
