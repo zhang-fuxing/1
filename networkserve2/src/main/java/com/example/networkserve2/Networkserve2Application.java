@@ -5,6 +5,8 @@ import cn.hutool.json.JSONUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -46,6 +48,7 @@ public class Networkserve2Application {
 	
 	@GetMapping("/111")
 	public void get111(HttpServletResponse response) throws IOException {
+		var entity = new ResponseEntity<>("s", HttpStatus.BAD_GATEWAY);
 		List<Integer> list = List.of(111, 222, 333, 444, 555, 666);
 		response.setContentType("application/octet-stream");
 		response.getOutputStream().write("hello world!".getBytes());

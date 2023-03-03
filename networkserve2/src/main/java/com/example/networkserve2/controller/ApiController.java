@@ -27,7 +27,11 @@ public class ApiController {
 		String code = params.getCode();
 		String appCode = params.getAppCode();
 		String secret = params.getSecret();
-		return JSONUtil.createObj().set("result", JSONUtil.createObj().set("userName","test133").set("accountName", "test133")).toJSONString(4);
+		return JSONUtil.createObj()
+				.set("result", JSONUtil.createObj()
+						.set("userName","test133")
+						.set("accountName", "test133"))
+				.toJSONString(4);
 	}
 	
 	@PostMapping("/user/getUserByCode")
@@ -35,7 +39,8 @@ public class ApiController {
 		String code = params.getCode();
 		String appCode = params.getAppCode();
 		String secret = params.getSecret();
-		return JSONUtil.createObj().set("user",JSONUtil.createObj().set("displayName", "test133")).toJSONString(4);
+		return JSONUtil.createObj()
+				.set("user",JSONUtil.createObj().set("displayName", "test133")).toJSONString(4);
 	}
 	
 	@GetMapping("/file")

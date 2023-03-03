@@ -19,6 +19,9 @@
         <module name="mygateway" />
         <module name="design-schema" />
         <module name="util" />
+        <module name="RedirectTest2" />
+        <module name="server-simulation" />
+        <module name="RedirectTest1" />
         <module name="simpleServer" />
         <module name="s1" />
         <module name="algorithm" />
@@ -32,11 +35,14 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="RedirectTest1" options="-parameters" />
+      <module name="RedirectTest2" options="-parameters" />
       <module name="b" options="-parameters" />
       <module name="netty-demo" options="-parameters" />
       <module name="networkserve1" options="-parameters" />
       <module name="networkserve2" options="-parameters" />
       <module name="s1" options="" />
+      <module name="server-simulation" options="-parameters" />
       <module name="spring-session-01" options="-parameters" />
       <module name="spring-session-02" options="-parameters" />
       <module name="util" options="" />
